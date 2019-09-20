@@ -1,7 +1,9 @@
 package com.rsqtechnologies.rsqjava.model;
 
+import com.rsqtechnologies.rsqjava.model.embedable.Address;
 import lombok.*;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,4 +16,6 @@ import javax.persistence.Table;
 @Table(name = "patients")
 public class Patient extends Person {
 
+    @Embedded
+    private Address address;
 }
