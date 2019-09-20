@@ -3,9 +3,9 @@ package com.rsqtechnologies.rsqjava.model;
 import com.rsqtechnologies.rsqjava.model.embedable.Address;
 import lombok.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,4 +18,7 @@ public class Patient extends Person {
 
     @Embedded
     private Address address;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private Set<Visit> visits = new HashSet<>();
 }
