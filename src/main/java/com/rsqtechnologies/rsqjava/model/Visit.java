@@ -26,9 +26,8 @@ public class Visit extends BaseEntity {
     private Medic medic;
 
     @ManyToOne
-    @JoinColumn (name = "patient_id")
+    @JoinColumn(name = "patient_id")
     private Patient patient;
-
 
 
 }
