@@ -20,7 +20,9 @@ public class Visit extends BaseEntity {
     private LocalDateTime visitDate;
 
     private String visitPlace;
-
+    /**
+     * I wanted to create new entity - Clinic witch would include BaseEntity, Embedded Address, Set<Medic> medics
+     */
     private Medic medic;
 
     @ManyToOne
