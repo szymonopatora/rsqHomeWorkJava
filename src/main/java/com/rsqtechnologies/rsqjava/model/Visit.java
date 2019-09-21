@@ -21,8 +21,12 @@ public class Visit extends BaseEntity {
 
     private String visitPlace;
     /**
-     * I wanted to create new entity - Clinic witch would include BaseEntity, Embedded Address, Set<Medic> medics
+     * I wanted to create new entity - Clinic witch would include BaseEntity, Embedded Address, Set<Medic> medics, but
+     * I will see if this simpler solution (String visitPlace) works fine.
      */
+
+    @ManyToOne
+    @JoinColumn(name = "medic_id")
     private Medic medic;
 
     @ManyToOne
