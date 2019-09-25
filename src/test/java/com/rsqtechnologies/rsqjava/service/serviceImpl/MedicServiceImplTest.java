@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
@@ -15,7 +16,9 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -96,7 +99,17 @@ class MedicServiceImplTest {
     }
 
     @Test
-    void save() {
+    void shouldSaveMedic() {
+        //given
+        Medic medicToBeSaved = Medic.builder().id(1L).build();
+        //when
+        when(medicRepository.save(any())).thenReturn(medic);
+
+        Medic medicSaved = medicRepository.save(medicToBeSaved);
+
+        //then
+        assertNotNull(medicSaved);
+        verify(medicRepository).save(any());
     }
 
     @Test
