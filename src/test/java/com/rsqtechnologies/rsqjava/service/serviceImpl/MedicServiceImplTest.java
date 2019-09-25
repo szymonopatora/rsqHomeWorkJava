@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
@@ -120,10 +119,17 @@ class MedicServiceImplTest {
 
         //then
         verify(medicRepository, times(1)).delete(any());
-
     }
 
     @Test
     void shouldDeleteMedicById() {
+        //given
+
+        //when
+        medicService.deleteById(1L);
+
+        //then
+        verify(medicRepository, times(1)).deleteById(any());
     }
+
 }
