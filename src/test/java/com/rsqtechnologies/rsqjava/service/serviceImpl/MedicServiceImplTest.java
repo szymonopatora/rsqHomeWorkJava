@@ -32,7 +32,7 @@ class MedicServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        medic = Medic.builder().id(1L)
+        medic = Medic.builder().id(1L).firstName(FIRST_NAME).lastName(LAST_NAME).build();
     }
 
     @Test

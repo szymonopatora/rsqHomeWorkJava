@@ -8,9 +8,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
 @Table(name = "medics")
 public class Medic extends Person {
