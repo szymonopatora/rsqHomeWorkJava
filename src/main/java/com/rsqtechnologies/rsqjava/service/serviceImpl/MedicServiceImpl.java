@@ -4,10 +4,12 @@ import com.rsqtechnologies.rsqjava.model.Medic;
 import com.rsqtechnologies.rsqjava.repository.MedicRepository;
 import com.rsqtechnologies.rsqjava.repository.SpecialtyRepository;
 import com.rsqtechnologies.rsqjava.service.MedicService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class MedicServiceImpl implements MedicService {
 
     private final MedicRepository medicRepository;

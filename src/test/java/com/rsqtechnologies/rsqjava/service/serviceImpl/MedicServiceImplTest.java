@@ -62,7 +62,6 @@ class MedicServiceImplTest {
         //given
         Set<Medic> medicSet = new HashSet<>();
 
-
         //when
         when(medicRepository.findAll()).thenReturn(medicSet);
         Set<Medic> medics = medicService.findAll();
