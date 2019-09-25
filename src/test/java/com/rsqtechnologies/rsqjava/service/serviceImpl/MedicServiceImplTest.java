@@ -11,9 +11,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,11 +53,34 @@ class MedicServiceImplTest {
 
         //then
         assertNotNull(medics);
-        assertEquals(2,medics.size());
+        assertEquals(2, medics.size());
     }
 
     @Test
-    void findById() {
+    void shouldReturnZeroWhenSetOfMedicsIsEmpty() {
+        //given
+        Set<Medic> medicSet = new HashSet<>();
+
+
+        //when
+        when(medicRepository.findAll()).thenReturn(medicSet);
+        Set<Medic> medics = medicService.findAll();
+
+        //then
+        assertEquals(0, medics.size());
+    }
+
+
+    @Test
+    void shouldFindMedicById() {
+        //given
+
+        //when
+        when(medicRepository.findById(anyLong())).thenReturn(Optional.of(medic));
+        Medic medicToBeFound = medicService.findById(1L);
+
+        //then
+        assertNotNull(medicToBeFound);
     }
 
     @Test
