@@ -84,6 +84,18 @@ class MedicServiceImplTest {
     }
 
     @Test
+    void shouldReturnNullWhenMedicByIdNotFound() {
+        //given
+
+        //when
+        when(medicRepository.findById(anyLong())).thenReturn(Optional.empty());
+        Medic medicToBeFound = medicService.findById(1L);
+
+        //then
+        assertNull(medicToBeFound);
+    }
+
+    @Test
     void save() {
     }
 
