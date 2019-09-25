@@ -18,8 +18,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MedicServiceImplTest {
@@ -113,10 +112,18 @@ class MedicServiceImplTest {
     }
 
     @Test
-    void delete() {
+    void shouldDeleteMedic() {
+        //given
+
+        //when
+        medicService.delete(medic);
+
+        //then
+        verify(medicRepository, times(1)).delete(any());
+
     }
 
     @Test
-    void deleteById() {
+    void shouldDeleteMedicById() {
     }
 }
