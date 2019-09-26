@@ -25,7 +25,7 @@ class MedicServiceImplTest {
     private final String FIRST_NAME = "John";
     private final String LAST_NAME = "Smith";
 
-    private Medic medic;
+    Medic medic;
 
     @Mock
     MedicRepository medicRepository;
