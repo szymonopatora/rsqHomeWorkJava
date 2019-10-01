@@ -13,6 +13,10 @@ import java.util.Set;
 @Table(name = "medics")
 public class Medic extends Person {
 
+    public Medic(String firstName, String lastName) {
+
+    }
+
     @Builder
     public Medic(Long id, String firstName, String lastName, Set<Specialty> specialties) {
         super(id, firstName, lastName);

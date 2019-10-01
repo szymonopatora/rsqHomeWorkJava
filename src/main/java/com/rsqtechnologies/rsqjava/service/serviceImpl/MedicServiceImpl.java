@@ -1,5 +1,6 @@
 package com.rsqtechnologies.rsqjava.service.serviceImpl;
 
+import com.rsqtechnologies.rsqjava.dto.MedicDto;
 import com.rsqtechnologies.rsqjava.model.Medic;
 import com.rsqtechnologies.rsqjava.repository.MedicRepository;
 import com.rsqtechnologies.rsqjava.repository.SpecialtyRepository;
@@ -45,5 +46,11 @@ public class MedicServiceImpl implements MedicService {
     @Override
     public void deleteById(Long id) {
         medicRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(MedicDto medicDto) {
+        Medic medic = new Medic(medicDto.getFirstName(), medicDto.getLastName());
+        medicRepository.save(medic);
     }
 }
