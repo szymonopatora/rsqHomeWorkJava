@@ -14,9 +14,9 @@ public class MedicController {
         this.medicService = medicService;
     }
 
-    @RequestMapping("/medic/medicIndex")
+    @RequestMapping("/showMedics")
     public String getAllMedics (Model model) {
         model.addAttribute("medics", medicService.findAll());
-        return "medic/showMedics";
+        return "medics";
     }
 }

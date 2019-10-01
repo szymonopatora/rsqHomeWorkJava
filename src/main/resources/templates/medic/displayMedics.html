@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>RSQ Clinic Home</title>
+    <title>RSQ Clinic</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <div class="table-responsive" th:if="${not #lists.isEmpty(medics)}">
+<!--                <div class="table-responsive" th:if="${not #lists.isEmpty(medics)}">-->
                     <table class="table table-hover ">
                         <thead class="thead-inverse">
                         <tr>
@@ -37,23 +37,13 @@
                             <th>Last Name</th>
                         </tr>
                         </thead>
-                        <tr th:remove="all">
+                        <tr th:each="medic : ${medics}">
                             <td th:text="${medic.id}">1</td>
                             <td th:text="${medic.firstName}">Medic</td>
                             <td th:text="${medic.lastName}">One</td>
                         </tr>
-                        <tr th:remove="all">
-                            <td th:text="${medic.id}">2</td>
-                            <td th:text="${medic.firstName}">Medic</td>
-                            <td th:text="${medic.lastName}">Two</td>
-                        </tr>
-                        <tr th:each="medic : ${medics}">
-                            <td th:text="${medic.id}">3</td>
-                            <td th:text="${medic.firstName}">Medic</td>
-                            <td th:text="${medic.lastName}">Three</td>
-                        </tr>
                     </table>
-                </div>
+<!--                </div>-->
             </div>
         </div>
     </div>
