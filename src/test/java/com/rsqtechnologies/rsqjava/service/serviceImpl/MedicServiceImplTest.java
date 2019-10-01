@@ -99,10 +99,10 @@ class MedicServiceImplTest {
     void shouldSaveMedic() {
         //given
         Medic medicToBeSaved = Medic.builder().id(1L).build();
-        //when
         when(medicRepository.save(any())).thenReturn(medic);
+        //when
 
-        Medic medicSaved = medicRepository.save(medicToBeSaved);
+        Medic medicSaved = medicService.save(medicToBeSaved);
 
         //then
         assertNotNull(medicSaved);
